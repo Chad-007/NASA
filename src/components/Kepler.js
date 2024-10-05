@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import * as THREE from "three";
 import "./Kepler.css";
 
 const Kepler = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -72,6 +74,11 @@ const Kepler = ({ data }) => {
     };
   }, [data]);
 
+  // Navigate to KeplerMission on button click
+  const handleStartMission = () => {
+    navigate("/kepler-mission"); // Navigate to the KeplerMission screen
+  };
+
   return (
     <div className="mission-page">
       {/* Distance Bar */}
@@ -83,7 +90,9 @@ const Kepler = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
+        <button className="start-mission-button" onClick={handleStartMission}>
+          Start Mission
+        </button>
       </div>
 
       {/* Planet and Info */}
