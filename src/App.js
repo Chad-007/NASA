@@ -8,11 +8,8 @@ import LHS from "./components/LHS";
 import K2 from "./components/K2";
 import Kepler from "./components/Kepler";
 import "./App.css";
-<<<<<<< HEAD
 import KeplerMission from "./components/KeplerMission";
 
-=======
->>>>>>> origin/main
 const App = () => {
   const [planetData, setPlanetData] = useState([]);
   const [isVideoPlayed, setIsVideoPlayed] = useState(false);
