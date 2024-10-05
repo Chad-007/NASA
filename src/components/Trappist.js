@@ -84,7 +84,8 @@ const Trappist = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button" >Start Mission</button>
+        <button className="start-mission-button">Start Mission</button>
+        {/* onClick={() => navigate('/WaterCanisterGame')} */}
       </div>
 
       {/* Planet and Info */}

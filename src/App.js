@@ -9,7 +9,6 @@ import LHS from "./components/LHS";
 import K2 from "./components/K2";
 import Kepler from "./components/Kepler";
 import "./App.css";
-
 const App = () => {
   const [planetData, setPlanetData] = useState([]);
 
