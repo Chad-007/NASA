@@ -1,0 +1,6 @@
+Planet Name,Star,Distance (light-years),Orbital Period (days),Temperature (K),Common Atmospheric Gases,Atmospheric Pressure (atm),Presence of Liquid Water,Energy Source,Magnetic Field,Geological Activity,Right Location in Galaxy,Size (Earth radii),Habitability Score
+Kepler-186f,Kepler-186,582.0,129.9,277,"N2, O2, CO2",0.6,Yes,Sunlight,Yes,Moderate,Yes,1.1,85
+Proxima Centauri b,Proxima Centauri,4.24,11.2,234,"N2, O2",1.0,Possible,Stellar radiation,Yes,Yes,Yes,1.3,78
+TRAPPIST-1e,TRAPPIST-1,39.5,6.1,230,"N2, H2O",0.8,Yes,Chemical reactions,Yes,Active,Yes,0.9,82
+LHS 1140 b,LHS 1140,40.0,24.7,300,"H2, He",0.5,Possible,Stellar radiation,Unknown,Moderate,Yes,1.4,70
+K2-18 b,K2-18,124.0,33.0,290,"H2O, CO2",0.9,Yes,Sunlight,Yes,Yes,Yes,1.0,80

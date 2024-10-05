@@ -1,0 +1,36 @@
+/* src/components/Home.css */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #282c34; /* Dark background color */
+  color: white; /* Text color */
+  font-family: Arial, sans-serif; /* Font style */
+}
+
+h2 {
+  font-size: 2.5rem; /* Heading size */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+li {
+  margin: 10px 0; /* Space between list items */
+}
+
+a {
+  text-decoration: none; /* Remove underline */
+  color: #61dafb; /* Link color */
+  font-size: 1.2rem; /* Link font size */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+a:hover {
+  color: #21a1f1; /* Change link color on hover */
+}
