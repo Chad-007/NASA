@@ -20,8 +20,8 @@ body {
   align-items: center;
   background: radial-gradient(
     circle,
-    rgba(0, 0, 50, 1) 10%,
-    rgba(0, 0, 20, 1) 100%
+    rgba(41, 31, 60, 1) 10%,
+    rgba(18, 7, 39, 1) 100%
   );
   overflow: hidden;
 }
@@ -55,8 +55,8 @@ body {
   text-align: left; /* Aligns text to the left */
   padding: 20px; /* Optional: add padding for space around text */
   z-index: 1; /* Ensure it appears above other elements */
-  font-size: x-large;
-  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  font-family: "Poppins";
 }
 
 .mission-hey {
@@ -74,10 +74,13 @@ body {
 .start-mission-button {
   padding: 10px 20px;
   font-size: 16px;
+  font-family: 'Poppins';
   background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
+  margin-left: 1250px;
+  border-radius: 25px;
 }
 
 /* Distance bar styling */
@@ -95,6 +98,7 @@ body {
 .distance-info {
   color: white;
   margin-bottom: 10px;
+  font-family: 'Poppins';
 }
 
 .progress-bar {

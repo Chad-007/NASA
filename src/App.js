@@ -33,7 +33,8 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <h1>Exoplanet Missions</h1>
+        {<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></link>}
+        <h1 style={{color: 'white', fontFamily: 'Poppins'}}>Exoplanet Missions</h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

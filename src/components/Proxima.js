@@ -60,7 +60,7 @@ const Proxima = ({ data }) => {
     const animate = function () {
       requestAnimationFrame(animate);
 
-      planet.rotation.y += 0.01; // Rotate the planet slowly
+      planet.rotation.y += 0.0005; // Rotate the planet slowly
       stars.rotation.y += 0.0005; // Rotate the stars
       renderer.render(scene, camera);
     };
@@ -78,12 +78,6 @@ const Proxima = ({ data }) => {
       <div className="distance-bar">
         <div className="distance-info">
           Distance from Earth: {distance} light-years
-        </div>
-        <div className="progress-bar">
-          <div
-            className="progress"
-            style={{ width: `${(distance / 10000) * 100}%` }}
-          ></div>
         </div>
       </div>
 

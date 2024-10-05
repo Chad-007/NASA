@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
 import "./Trappist.css";
 
 const Trappist = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -59,7 +61,7 @@ const Trappist = ({ data }) => {
     const animate = function () {
       requestAnimationFrame(animate);
 
-      planet.rotation.y += 0.01;
+      planet.rotation.y += 0.0005;
       stars.rotation.y += 0.0005;
       renderer.render(scene, camera);
     };
@@ -78,17 +80,11 @@ const Trappist = ({ data }) => {
         <div className="distance-info">
           Distance from Earth: {distance} light-years
         </div>
-        <div className="progress-bar">
-          <div
-            className="progress"
-            style={{ width: `${(distance / 10000) * 100}%` }}
-          ></div>
-        </div>
       </div>
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
+        <button className="start-mission-button" >Start Mission</button>
       </div>
 
       {/* Planet and Info */}
