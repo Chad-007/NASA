@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Carousel.css"; // Import your CSS styles
+import "./Carousel.css";
 
 const Carousel = () => {
   const planets = [
@@ -37,19 +37,28 @@ const Carousel = () => {
     );
   };
 
+  const getClassName = (index) => {
+    if (index === currentIndex) {
+      return "item active";
+    } else if (index === (currentIndex + 1) % planets.length) {
+      return "item next";
+    } else if (index === (currentIndex - 1 + planets.length) % planets.length) {
+      return "item prev";
+    } else {
+      return "item";
+    }
+  };
+
   return (
     <div className="carousel">
       <div className="list">
         {planets.map((planet, index) => (
-          <div
-            className={`item ${index === currentIndex ? "active" : ""}`}
-            key={index}
-          >
+          <div className={getClassName(index)} key={index}>
             <img src={planet.image} alt={planet.name} />
             <div className="intro">
-              <div className="title">PLANETS</div>
-              <div className="topic">{planet.name}</div>
-              <button className="selectMission">Select Planet</button>
+              <div style={{fontFamily: 'Poppins', fontSize: '35px'}}>PLANETS</div>
+              <div style={{fontFamily: 'Poppins', fontSize: '20px'}}>{planet.name}</div>
+              <button style={{fontFamily: 'Poppins', fontSize: '15px'}}>Select Planet</button>
             </div>
           </div>
         ))}
