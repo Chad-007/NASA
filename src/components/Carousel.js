@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-=======
 import { useNavigate } from "react-router-dom"; // Import useNavigate
->>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
 import "./Carousel.css";
 
 const Carousel = () => {
@@ -59,25 +56,14 @@ const Carousel = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
   const handleSelectPlanet = (path) => {
     navigate(path); // Navigate to the selected planet's path
   };
-
->>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
   return (
     <div className="carousel">
       <div className="list">
         {planets.map((planet, index) => (
           <div className={getClassName(index)} key={index}>
-<<<<<<< HEAD
-            <img src={planet.image} alt={planet.name} />
-            <div className="intro">
-              <div style={{fontFamily: 'Poppins', fontSize: '35px'}}>PLANETS</div>
-              <div style={{fontFamily: 'Poppins', fontSize: '20px'}}>{planet.name}</div>
-              <button style={{fontFamily: 'Poppins', fontSize: '15px'}}>Select Planet</button>
-=======
             <img
               src={planet.image}
               alt={planet.name}
@@ -97,7 +83,6 @@ const Carousel = () => {
               >
                 Select Planet
               </button>
->>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
             </div>
           </div>
         ))}

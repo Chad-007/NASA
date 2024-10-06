@@ -8,6 +8,7 @@ import K2 from "./components/K2";
 import Kepler from "./components/Kepler";
 import "./App.css";
 import KeplerMission from "./components/KeplerMission";
+import Carousel from "./components/Carousel";
 
 const App = () => {
   const [planetData, setPlanetData] = useState([]);
@@ -126,6 +127,7 @@ const App = () => {
             element={<Kepler data={getPlanetDetails("Kepler-186f")} />}
           />
           <Route path="/kepler-mission" element={<KeplerMission />} />
+          <Route path="/Carousel" element={<Carousel/>}/>
         </Routes>
       </div>
     </Router>
