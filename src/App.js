@@ -105,7 +105,7 @@ const App = () => {
           rel="stylesheet"
         />
         <h1 style={{ color: "white", fontFamily: "Poppins" }}>
-          Exoplanet Missions
+          ExoVision
         </h1>
         <Routes>
           <Route path="/" element={<Carousel />} />{" "}
