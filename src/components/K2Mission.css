@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+  height: 100vh;
+  background-image: url("/public/k2-bag.jpg"); /* Use relative path from public */
+  background-size: cover;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  color: #ffffff;
+}

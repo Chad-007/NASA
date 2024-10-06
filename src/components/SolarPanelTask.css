@@ -1,0 +1,27 @@
+.solar-task-container {
+  text-align: center;
+  background-color: rgba(83, 86, 241, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.solar-task-container button {
+  padding: 10px 20px;
+  background-color: #1f10f7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.solar-task-container button:hover {
+  background-color: #5840e2;
+}
+
+input[type="range"] {
+  width: 80%;
+  margin-top: 10px;
+}

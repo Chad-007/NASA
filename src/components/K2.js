@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
-import "./K2.css";
+import "./Kepler.css";
 
-const K2 = ({ data }) => {
+const Kepler = ({ data }) => {
   const [distance, setDistance] = useState(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false); // State to manage video playing\
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -50,7 +47,7 @@ const K2 = ({ data }) => {
 
     // Create a larger sphere to represent the planet
     const geometry = new THREE.SphereGeometry(2.5, 64, 64); // Large planet
-    const texture = new THREE.TextureLoader().load("/k2.jpg");
+    const texture = new THREE.TextureLoader().load("/kepler.jpg");
     const material = new THREE.MeshBasicMaterial({ map: texture });
     const planet = new THREE.Mesh(geometry, material);
 
@@ -75,17 +72,6 @@ const K2 = ({ data }) => {
     };
   }, [data]);
 
-  // Function to handle video play and navigate after it ends
-  const handleStartMission = () => {
-    setIsVideoPlaying(true); // Show video when button is clicked
-  };
-
-  // Function to navigate after video ends
-  const handleVideoEnd = () => {
-    // Replace this with your navigation logic, e.g., using React Router
-    navigate("/K2Mission");
-  };
-
   return (
     <div className="mission-page">
       {/* Distance Bar */}
@@ -97,13 +83,7 @@ const K2 = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button
-          className="start-mission-button"
-          onClick={handleStartMission}
-          disabled={isVideoPlaying} // Disable button while video is playing
-        >
-          Start Mission
-        </button>
+        <button className="start-mission-button">Start Mission</button>
       </div>
 
       {/* Show video overlay if video is playing */}
@@ -120,7 +100,7 @@ const K2 = ({ data }) => {
       )}
 
       {/* Planet and Info */}
-      <div className="k2-container">
+      <div className="kepler-container">
         {/* This div will hold the 3D planet */}
         <div id="planet-container" className="planet-container"></div>
 
@@ -146,4 +126,4 @@ const K2 = ({ data }) => {
   );
 };
 
-export default K2;
+export default Kepler;
