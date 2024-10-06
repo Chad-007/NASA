@@ -1,27 +1,34 @@
 import React, { useState } from "react";
-import "./Carousel.css"; // Import your CSS styles
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./Carousel.css";
 
 const Carousel = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const planets = [
     {
       name: "Kepler-186F",
       image: "images/kepler-186f.png",
+      path: "/kepler", // Path for navigation
     },
     {
       name: "Proxima Centauri-B",
       image: "images/proximacentaurib.png",
+      path: "/proxima",
     },
     {
       name: "Trappist-1E",
       image: "images/trappist-1e.png",
+      path: "/trappist",
     },
     {
       name: "LHS-1140 B",
       image: "images/Lhs-1140b.png",
+      path: "/lhs",
     },
     {
       name: "K2-18B",
-      image: "images/k2-18b.png",
+      image: "images/k2-18b.jpg",
+      path: "/k2",
     },
   ];
 
@@ -37,19 +44,46 @@ const Carousel = () => {
     );
   };
 
+  const getClassName = (index) => {
+    if (index === currentIndex) {
+      return "item active";
+    } else if (index === (currentIndex + 1) % planets.length) {
+      return "item next";
+    } else if (index === (currentIndex - 1 + planets.length) % planets.length) {
+      return "item prev";
+    } else {
+      return "item";
+    }
+  };
+
+  const handleSelectPlanet = (path) => {
+    navigate(path); // Navigate to the selected planet's path
+  };
+
   return (
     <div className="carousel">
       <div className="list">
         {planets.map((planet, index) => (
-          <div
-            className={`item ${index === currentIndex ? "active" : ""}`}
-            key={index}
-          >
-            <img src={planet.image} alt={planet.name} />
+          <div className={getClassName(index)} key={index}>
+            <img
+              src={planet.image}
+              alt={planet.name}
+              style={{ cursor: "pointer" }} // Change cursor to pointer
+              onClick={() => handleSelectPlanet(planet.path)} // Navigate on image click
+            />
             <div className="intro">
-              <div className="title">PLANETS</div>
-              <div className="topic">{planet.name}</div>
-              <button className="selectMission">Select Planet</button>
+              <div style={{ fontFamily: "Poppins", fontSize: "35px" }}>
+                PLANETS
+              </div>
+              <div style={{ fontFamily: "Poppins", fontSize: "20px" }}>
+                {planet.name}
+              </div>
+              <button
+                style={{ fontFamily: "Poppins", fontSize: "15px" }}
+                onClick={() => handleSelectPlanet(planet.path)} // Call handleSelectPlanet on button click
+              >
+                Select Planet
+              </button>
             </div>
           </div>
         ))}
