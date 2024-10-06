@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import * as THREE from "three";
-import "./Kepler.css";
+import "./Kepler.css"; // Assuming the styling is the same
 
 const Trappist = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false); // State to manage video playing
   const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
@@ -74,9 +75,14 @@ const Trappist = ({ data }) => {
     };
   }, [data]);
 
-  // Navigate to KeplerMission on button click
+  // Function to handle video play and navigate after it ends
   const handleStartMission = () => {
-    navigate("/trappist-mission"); // Navigate to the KeplerMission screen
+    setIsVideoPlaying(true); // Show video when button is clicked
+  };
+
+  // Function to navigate after video ends
+  const handleVideoEnd = () => {
+    navigate("/TrappistMission"); // Navigate to the Trappist mission screen
   };
 
   return (
@@ -90,10 +96,27 @@ const Trappist = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button" onClick={handleStartMission}>
+        <button
+          className="start-mission-button"
+          onClick={handleStartMission}
+          disabled={isVideoPlaying} // Disable button while video is playing
+        >
           Start Mission
         </button>
       </div>
+
+      {/* Show video overlay if video is playing */}
+      {isVideoPlaying && (
+        <div className="video-overlay">
+          <video
+            src="/takeoff.mp4" // Add the path to your video file here
+            autoPlay
+            muted
+            onEnded={handleVideoEnd} // Trigger navigation after video ends
+            className="fullscreen-video"
+          />
+        </div>
+      )}
 
       {/* Planet and Info */}
       <div className="kepler-container">

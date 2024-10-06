@@ -5,6 +5,7 @@ import "./Kepler.css";
 
 const Kepler = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false); // State to track video play
   const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
@@ -74,8 +75,13 @@ const Kepler = ({ data }) => {
     };
   }, [data]);
 
-  // Navigate to KeplerMission on button click
+  // Function to handle video play and navigate after it ends
   const handleStartMission = () => {
+    setIsVideoPlaying(true); // Show video when button is clicked
+  };
+
+  // Function to navigate after video ends
+  const handleVideoEnd = () => {
     navigate("/kepler-mission"); // Navigate to the KeplerMission screen
   };
 
@@ -90,10 +96,27 @@ const Kepler = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button" onClick={handleStartMission}>
+        <button
+          className="start-mission-button"
+          onClick={handleStartMission}
+          disabled={isVideoPlaying} // Disable button while video is playing
+        >
           Start Mission
         </button>
       </div>
+
+      {/* Show video overlay if video is playing */}
+      {isVideoPlaying && (
+        <div className="video-overlay">
+          <video
+            src="/takeoff.mp4" // Add the path to your video file here
+            autoPlay
+            muted
+            onEnded={handleVideoEnd} // Trigger navigation after video ends
+            className="fullscreen-video"
+          />
+        </div>
+      )}
 
       {/* Planet and Info */}
       <div className="kepler-container">

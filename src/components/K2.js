@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
 import "./K2.css";
 
 const K2 = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false); // State to manage video playing\
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -72,6 +75,17 @@ const K2 = ({ data }) => {
     };
   }, [data]);
 
+  // Function to handle video play and navigate after it ends
+  const handleStartMission = () => {
+    setIsVideoPlaying(true); // Show video when button is clicked
+  };
+
+  // Function to navigate after video ends
+  const handleVideoEnd = () => {
+    // Replace this with your navigation logic, e.g., using React Router
+    navigate("/K2Mission");
+  };
+
   return (
     <div className="mission-page">
       {/* Distance Bar */}
@@ -83,8 +97,27 @@ const K2 = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
+        <button
+          className="start-mission-button"
+          onClick={handleStartMission}
+          disabled={isVideoPlaying} // Disable button while video is playing
+        >
+          Start Mission
+        </button>
       </div>
+
+      {/* Show video overlay if video is playing */}
+      {isVideoPlaying && (
+        <div className="video-overlay">
+          <video
+            src="/takeoff.mp4" // Add the path to your video file here
+            autoPlay
+            muted
+            onEnded={handleVideoEnd} // Trigger navigation after video ends
+            className="fullscreen-video"
+          />
+        </div>
+      )}
 
       {/* Planet and Info */}
       <div className="k2-container">

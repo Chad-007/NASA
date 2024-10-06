@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import * as THREE from "three";
-import "./Proxima.css";
+import "./K2.css";
 
-const Proxima = ({ data }) => {
+const K2 = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false); // State to manage video playing
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -47,7 +48,7 @@ const Proxima = ({ data }) => {
 
     // Create a larger sphere to represent the planet
     const geometry = new THREE.SphereGeometry(2.5, 64, 64); // Large planet
-    const texture = new THREE.TextureLoader().load("/proxima.jpg");
+    const texture = new THREE.TextureLoader().load("/k2.jpg");
     const material = new THREE.MeshBasicMaterial({ map: texture });
     const planet = new THREE.Mesh(geometry, material);
 
@@ -72,6 +73,18 @@ const Proxima = ({ data }) => {
     };
   }, [data]);
 
+  // Function to handle video play and navigate after it ends
+  const handleStartMission = () => {
+    setIsVideoPlaying(true); // Show video when button is clicked
+  };
+
+  // Function to navigate after video ends
+  const handleVideoEnd = () => {
+    // Replace this with your navigation logic, e.g., using React Router
+    // navigate("/k2-mission");
+    alert("Video has ended. Redirect to mission page here."); // Placeholder for navigation
+  };
+
   return (
     <div className="mission-page">
       {/* Distance Bar */}
@@ -83,11 +96,30 @@ const Proxima = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
+        <button
+          className="start-mission-button"
+          onClick={handleStartMission}
+          disabled={isVideoPlaying} // Disable button while video is playing
+        >
+          Start Mission
+        </button>
       </div>
 
+      {/* Show video overlay if video is playing */}
+      {isVideoPlaying && (
+        <div className="video-overlay">
+          <video
+            src="/takeoff.mp4" // Add the path to your video file here
+            autoPlay
+            muted
+            onEnded={handleVideoEnd} // Trigger navigation after video ends
+            className="fullscreen-video"
+          />
+        </div>
+      )}
+
       {/* Planet and Info */}
-      <div className="proxima-container">
+      <div className="k2-container">
         {/* This div will hold the 3D planet */}
         <div id="planet-container" className="planet-container"></div>
 
@@ -113,4 +145,4 @@ const Proxima = ({ data }) => {
   );
 };
 
-export default Proxima;
+export default K2;

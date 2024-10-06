@@ -9,6 +9,8 @@ import Kepler from "./components/Kepler";
 import "./App.css";
 import KeplerMission from "./components/KeplerMission";
 import Carousel from "./components/Carousel";
+import K2Mission from "./components/K2Mission";
+import TrappistMission from "./components/TrappistMission";
 
 const App = () => {
   const [planetData, setPlanetData] = useState([]);
@@ -59,15 +61,16 @@ const App = () => {
           onClick={handlePlayVideo}
           style={{
             position: "absolute",
-            top: "50%",
+            top: "95%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
             padding: "10px 20px",
             fontSize: "18px",
             border: "none",
             cursor: "pointer",
             fontFamily: "Poppins",
+            borderRadius: '25px'
           }}
         >
           Play Video
@@ -76,18 +79,19 @@ const App = () => {
           onClick={handleSkipForward}
           style={{
             position: "absolute",
-            top: "20%",
-            left: "90%",
+            top: "5%",
+            left: "95%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
             padding: "10px 20px",
             fontSize: "18px",
             border: "none",
             cursor: "pointer",
             fontFamily: "Poppins",
+            borderRadius: '25px'
           }}
         >
-          ➡️
+          Skip
         </button>
       </div>
     );
@@ -128,6 +132,8 @@ const App = () => {
           />
           <Route path="/kepler-mission" element={<KeplerMission />} />
           <Route path="/Carousel" element={<Carousel/>}/>
+          <Route path="/TrappistMission" element={<TrappistMission/>}/>
+          <Route path="/K2Mission" element={<K2Mission/>}/>
         </Routes>
       </div>
     </Router>
