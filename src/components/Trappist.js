@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import * as THREE from "three";
-import "./Trappist.css";
+import "./Kepler.css";
 
 const Trappist = ({ data }) => {
   const [distance, setDistance] = useState(0);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -55,23 +55,29 @@ const Trappist = ({ data }) => {
 
     scene.add(planet);
 
-    camera.position.set(0, 1.8, 4);
-    camera.lookAt(new THREE.Vector3(0, 1, 0));
+    // Adjust camera to zoom out a bit
+    camera.position.set(0, 1.8, 4); // Zoom out by increasing z-position
+    camera.lookAt(new THREE.Vector3(0, 1, 0)); // Look slightly upward
 
     const animate = function () {
       requestAnimationFrame(animate);
 
-      planet.rotation.y += 0.0005;
-      stars.rotation.y += 0.0005;
+      planet.rotation.y += 0.0005; // Rotate the planet slowly
+      stars.rotation.y += 0.0005; // Rotate the stars
       renderer.render(scene, camera);
     };
 
     animate();
 
     return () => {
-      container.removeChild(renderer.domElement);
+      container.removeChild(renderer.domElement); // Cleanup on unmount
     };
   }, [data]);
+
+  // Navigate to KeplerMission on button click
+  const handleStartMission = () => {
+    navigate("/trappist-mission"); // Navigate to the KeplerMission screen
+  };
 
   return (
     <div className="mission-page">
@@ -84,12 +90,13 @@ const Trappist = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
-        {/* onClick={() => navigate('/WaterCanisterGame')} */}
+        <button className="start-mission-button" onClick={handleStartMission}>
+          Start Mission
+        </button>
       </div>
 
       {/* Planet and Info */}
-      <div className="trappist-container">
+      <div className="kepler-container">
         {/* This div will hold the 3D planet */}
         <div id="planet-container" className="planet-container"></div>
 

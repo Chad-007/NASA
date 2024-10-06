@@ -1,0 +1,81 @@
+.alan {
+  text-align: center;
+  height: 100vh;
+  background-image: url("/home/alan/Desktop/nasa/exo-surfer/public/tra-bag.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(148, 172, 250, 0.7);
+  background-blend-mode: darken;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.break-ice {
+  text-align: center;
+  background-color: rgba(83, 86, 241, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px; /* Set a max-width to control the size */
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 350px;
+  color: white;
+}
+
+.break-ice button {
+  padding: 10px 20px;
+  background-color: #1f10f7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.break-ice button:hover {
+  background-color: #5840e2;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #121268;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.modal input[type="range"] {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1f10f7;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #5840e2;
+}

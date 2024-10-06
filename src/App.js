@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Papa from "papaparse";
-import Home from "./components/Home";
 import Proxima from "./components/Proxima";
 import Trappist from "./components/Trappist";
 import LHS from "./components/LHS";
@@ -9,7 +8,6 @@ import K2 from "./components/K2";
 import Kepler from "./components/Kepler";
 import "./App.css";
 import KeplerMission from "./components/KeplerMission";
-import Carousel from "./components/Carousel";
 
 const App = () => {
   const [planetData, setPlanetData] = useState([]);
@@ -105,7 +103,8 @@ const App = () => {
           Exoplanet Missions
         </h1>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Carousel />} />{" "}
+          {/* Display Carousel after video */}
           <Route
             path="/proxima"
             element={<Proxima data={getPlanetDetails("Proxima Centauri b")} />}
@@ -127,8 +126,6 @@ const App = () => {
             element={<Kepler data={getPlanetDetails("Kepler-186f")} />}
           />
           <Route path="/kepler-mission" element={<KeplerMission />} />
-          <Route path="/Carousel" element={<Carousel/>}/>
-          <Route path="/KeplerMission" element={<KeplerMission/>}/>
         </Routes>
       </div>
     </Router>

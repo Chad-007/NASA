@@ -1,0 +1,29 @@
+.hud-container {
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+  }
+  
+  .planet-details, .rover-details {
+    background-color: rgba(83, 86, 241, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  .planet-details {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  
+  .rover-details {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+  }
+  
+  .hud-container h2 {
+    color: #2146e9;
+  }
+  

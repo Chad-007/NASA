@@ -1,27 +1,37 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
+=======
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+>>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
 import "./Carousel.css";
 
 const Carousel = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const planets = [
     {
       name: "Kepler-186F",
       image: "images/kepler-186f.png",
+      path: "/kepler", // Path for navigation
     },
     {
       name: "Proxima Centauri-B",
       image: "images/proximacentaurib.png",
+      path: "/proxima",
     },
     {
       name: "Trappist-1E",
       image: "images/trappist-1e.png",
+      path: "/trappist",
     },
     {
       name: "LHS-1140 B",
       image: "images/Lhs-1140b.png",
+      path: "/lhs",
     },
     {
       name: "K2-18B",
-      image: "images/k2-18b.png",
+      image: "images/k2-18b.jpg",
+      path: "/k2",
     },
   ];
 
@@ -49,16 +59,45 @@ const Carousel = () => {
     }
   };
 
+<<<<<<< HEAD
+=======
+  const handleSelectPlanet = (path) => {
+    navigate(path); // Navigate to the selected planet's path
+  };
+
+>>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
   return (
     <div className="carousel">
       <div className="list">
         {planets.map((planet, index) => (
           <div className={getClassName(index)} key={index}>
+<<<<<<< HEAD
             <img src={planet.image} alt={planet.name} />
             <div className="intro">
               <div style={{fontFamily: 'Poppins', fontSize: '35px'}}>PLANETS</div>
               <div style={{fontFamily: 'Poppins', fontSize: '20px'}}>{planet.name}</div>
               <button style={{fontFamily: 'Poppins', fontSize: '15px'}}>Select Planet</button>
+=======
+            <img
+              src={planet.image}
+              alt={planet.name}
+              style={{ cursor: "pointer" }} // Change cursor to pointer
+              onClick={() => handleSelectPlanet(planet.path)} // Navigate on image click
+            />
+            <div className="intro">
+              <div style={{ fontFamily: "Poppins", fontSize: "35px" }}>
+                PLANETS
+              </div>
+              <div style={{ fontFamily: "Poppins", fontSize: "20px" }}>
+                {planet.name}
+              </div>
+              <button
+                style={{ fontFamily: "Poppins", fontSize: "15px" }}
+                onClick={() => handleSelectPlanet(planet.path)} // Call handleSelectPlanet on button click
+              >
+                Select Planet
+              </button>
+>>>>>>> 5cee6c46001f7896c9701859bd94a904008d3e6b
             </div>
           </div>
         ))}
