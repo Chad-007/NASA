@@ -1,7 +1,7 @@
 .app {
   text-align: center;
   height: 100vh;
-  background-image: url("/home/alan/Desktop/nasa/exo-surfer/public/k2-bag.jpg"); /* Path to your image */
+  background-image: url("/public/k2-bag.jpg"); /* Use relative path from public */
   background-size: cover;
   color: white;
   position: relative;
@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: center;
 }
-
 h2 {
   color: #ffffff;
 }
