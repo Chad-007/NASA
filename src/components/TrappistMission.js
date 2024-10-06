@@ -19,14 +19,14 @@ function TrappistMission() {
   const breakIce = () => {
     setBreakIceCount((prevCount) => prevCount + 1);
 
-    if (breakIceCount + 1 === totalBreaksNeeded) {
+    if (breakIceCount + 1 == totalBreaksNeeded) {
       setIceBroken(true);
       setShowSliderModal(true);
     }
   };
 
   const checkMissionCompletion = () => {
-    if (temperature === requiredTemperature) {
+    if (temperature == requiredTemperature) {
       setMissionComplete(true);
       setShowSliderModal(false);
     }
