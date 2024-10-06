@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import * as THREE from "three";
-import "./K2.css";
+import "./Kepler.css";
 
-const K2 = ({ data }) => {
+const Kepler = ({ data }) => {
   const [distance, setDistance] = useState(0);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch the distance from the data and set it
@@ -47,7 +49,7 @@ const K2 = ({ data }) => {
 
     // Create a larger sphere to represent the planet
     const geometry = new THREE.SphereGeometry(2.5, 64, 64); // Large planet
-    const texture = new THREE.TextureLoader().load("/k2.jpg");
+    const texture = new THREE.TextureLoader().load("/kepler.jpg");
     const material = new THREE.MeshBasicMaterial({ map: texture });
     const planet = new THREE.Mesh(geometry, material);
 
@@ -72,6 +74,11 @@ const K2 = ({ data }) => {
     };
   }, [data]);
 
+  // Navigate to KeplerMission on button click
+  const handleStartMission = () => {
+    navigate("/k2-mission"); // Navigate to the KeplerMission screen
+  };
+
   return (
     <div className="mission-page">
       {/* Distance Bar */}
@@ -83,11 +90,13 @@ const K2 = ({ data }) => {
 
       {/* Start Mission Button */}
       <div className="start-mission-container">
-        <button className="start-mission-button">Start Mission</button>
+        <button className="start-mission-button" onClick={handleStartMission}>
+          Start Mission
+        </button>
       </div>
 
       {/* Planet and Info */}
-      <div className="k2-container">
+      <div className="kepler-container">
         {/* This div will hold the 3D planet */}
         <div id="planet-container" className="planet-container"></div>
 
@@ -113,4 +122,4 @@ const K2 = ({ data }) => {
   );
 };
 
-export default K2;
+export default Kepler;
