@@ -26,7 +26,7 @@ function TrappistMission() {
   };
 
   const checkMissionCompletion = () => {
-    if (temperature == requiredTemperature) {
+    if (temperature === requiredTemperature) {
       setMissionComplete(true);
       setShowSliderModal(false);
     }
